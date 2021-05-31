@@ -16,4 +16,4 @@ function getRandom (min, max) {
   return getDecimalRandom(min, max, 0);
 }
 
-getDecimalRandom();
+getRandom();
