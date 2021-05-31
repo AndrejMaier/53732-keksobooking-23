@@ -4,16 +4,16 @@ function getDecimalRandom (min, max, decimal) {
   } else if (max < min) {
     [min, max] = [max, min];
   } else if (min === max) {
-    throw 0;
+    return min;
   }
-  const NUMBER = Math.random() * (max - min) + min;
-  return Number(NUMBER.toFixed(decimal));
+  const randomNumber = Math.random() * (max - min) + min;
+  return Number(randomNumber.toFixed(decimal));
 }
 
-getDecimalRandom();
+getDecimalRandom(10, 50, 5);
 
 function getRandom (min, max) {
   return getDecimalRandom(min, max, 0);
 }
 
-getRandom();
+getRandom(5, 70);
