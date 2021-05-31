@@ -1,18 +1,19 @@
-function getRandom (min, max) {
-  if (max <= min) {
-    return Math.floor(Math.random() * (min - max + 1) + max);
+function getDecimalRandom (min, max, decimal) {
+  if (min < 0 || max < 0) {
+    throw 'Я не умею с такие цифрами работать';
+  } else if (max < min) {
+    [min, max] = [max, min];
+  } else if (min === max) {
+    throw 0;
   }
-  return Math.floor(Math.random() * (max - min + 1) + min);
+  const NUMBER = Math.random() * (max - min) + min;
+  return NUMBER.toFixed(decimal);
+}
+
+getDecimalRandom();
+
+function getRandom (min, max) {
+  return getDecimalRandom(min, max, 0);
 }
 
 getRandom();
-
-function getNonIntegerRandom (min, max, numberOfDecimal) {
-  if (max <= min) {
-    return 'У тебя ошибка в числах. Попробуй изменить числа.';
-  }
-  const NUMBER = Math.random() * (max - min) + min;
-  return NUMBER.toFixed(numberOfDecimal);
-}
-
-getNonIntegerRandom();
