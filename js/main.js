@@ -7,7 +7,7 @@ function getDecimalRandom (min, max, decimal) {
     throw 0;
   }
   const NUMBER = Math.random() * (max - min) + min;
-  return NUMBER.toFixed(decimal);
+  return Number(NUMBER.toFixed(decimal));
 }
 
 getDecimalRandom();
@@ -16,4 +16,4 @@ function getRandom (min, max) {
   return getDecimalRandom(min, max, 0);
 }
 
-getRandom();
+getDecimalRandom();
