@@ -5,11 +5,14 @@ function getRandom (min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-getRandom(40, 40);
+getRandom();
 
 function getNonIntegerRandom (min, max, numberOfDecimal) {
-  const number = Math.random() * (max - min) + min;
-  return number.toFixed(numberOfDecimal);
+  if (max <= min) {
+    return 'У тебя ошибка в числах. Попробуй изменить числа.';
+  }
+  const NUMBER = Math.random() * (max - min) + min;
+  return NUMBER.toFixed(numberOfDecimal);
 }
 
 getNonIntegerRandom();
