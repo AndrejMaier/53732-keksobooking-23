@@ -64,3 +64,5 @@ function getOffer() {
 }
 
 const offers = new Array(COUNT_OFFER).fill().map(() => getOffer());
+
+offers;
