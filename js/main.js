@@ -1,5 +1,4 @@
-import {COUNT_OFFER} from './db.js';
-import {getOffer} from './data.js';
+import {generateOffers} from './moki/data.js';
+const COUNT_OFFER = 10;
 
-const offers = new Array(COUNT_OFFER).fill().map(getOffer);
-offers;
+generateOffers(COUNT_OFFER);
