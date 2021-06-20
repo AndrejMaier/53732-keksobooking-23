@@ -29,6 +29,5 @@ const PHOTOS = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg',
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg',
 ];
-const COUNT_OFFER = 10;
 
-export {AVATAR_COUNT, TYPE_HOUSE, CHECKINS, CHECKOUTS, FEATURES, PHOTOS, COUNT_OFFER};
+export {AVATAR_COUNT, TYPE_HOUSE, CHECKINS, CHECKOUTS, FEATURES, PHOTOS};
