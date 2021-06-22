@@ -4,6 +4,11 @@ import {renderSimilarFeatures, renderSimilarPhotos} from './util.js';
 const offerTemplate = document.querySelector('#card').content;
 const map = document.querySelector('#map-canvas');
 
+/**
+ * Отрисовка объявлений в разметке
+ *
+ * @param {*} elements - массив объявлений
+ */
 const renderOffers = (elements) => {
   elements.forEach((element) => {
     const newOffer = offerTemplate.cloneNode(true);
