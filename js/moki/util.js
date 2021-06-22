@@ -24,4 +24,25 @@ const getRandomArray = (arr) => {
   return newArray;
 };
 
-export {getDecimalRandom, getRandom, getRandomArrayElement, getRandomArray};
+const renderSimilarFeatures = (elements) => {
+  const features = document.createDocumentFragment();
+  elements.forEach((element) => {
+    const feature = document.createElement('li');
+    feature.classList.add('popup__feature');
+    feature.classList.add(`popup__feature--${element}`);
+    features.appendChild(feature);
+  });
+  return features;
+};
+
+const renderSimilarPhotos = (elements, template) => {
+  const photos = document.createDocumentFragment();
+  elements.forEach((element) => {
+    const newOfferPhoto = template.querySelector('.popup__photo').cloneNode(false);
+    newOfferPhoto.src = element;
+    photos.appendChild(newOfferPhoto);
+  });
+  return photos;
+};
+
+export {getDecimalRandom, getRandom, getRandomArrayElement, getRandomArray, renderSimilarFeatures, renderSimilarPhotos};
