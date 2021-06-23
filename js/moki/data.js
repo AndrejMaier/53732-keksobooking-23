@@ -1,15 +1,12 @@
-import {getDecimalRandom} from './util.js';
-import {getRandom} from './util.js';
-import {getRandomArrayElement} from './util.js';
-import {getRandomArray} from './util.js';
-import {AVATAR_COUNT} from './db.js';
-import {TYPE_HOUSE} from './db.js';
-import {CHECKINS} from './db.js';
-import {CHECKOUTS} from './db.js';
-import {FEATURES} from './db.js';
-import {PHOTOS} from './db.js';
+import {getDecimalRandom, getRandom, getRandomArrayElement, getRandomArray} from './util.js';
+import {AVATAR_COUNT, TYPE_HOUSE, CHECKINS, CHECKOUTS, FEATURES, PHOTOS} from './vars.js';
 
-function getOffer() {
+/**
+ *  Создает объект
+ *
+ * @returns {object}
+ */
+const generateOffer = () => {
   const locationX = getDecimalRandom(35.65000, 35.70000, 5);
   const locationY = getDecimalRandom(139.70000, 139.80000, 5);
   return {
@@ -34,6 +31,8 @@ function getOffer() {
       lng: locationY,
     },
   };
-}
+};
 
-export {getOffer};
+const generateOffers = (params) => new Array(params).fill().map(generateOffer);
+
+export {generateOffers};
