@@ -11,10 +11,10 @@ const disablePage = () => {
   });
   mapFilters.classList.add('map__filters--disabled');
   mapFiltersSelect.forEach((element) => {
-    element.setAttribute('disabled', 'disabled');
+    element.disabled = true;
   });
   mapFiltersFieldset.forEach((element) => {
-    element.setAttribute('disabled', 'disabled');
+    element.disabled = true;
   });
 };
 
@@ -23,9 +23,11 @@ const activatePage = () => {
   adFormFieldsets.forEach((element) => {element.removeAttribute('disabled', 'disabled');
   });
   mapFilters.classList.remove('map__filters--disabled');
-  mapFiltersSelect.forEach((element) => {element.removeAttribute('disabled', 'disabled');
+  mapFiltersSelect.forEach((element) => {
+    element.disabled = false;
   });
-  mapFiltersFieldset.forEach((element) => {element.removeAttribute('disabled', 'disabled');
+  mapFiltersFieldset.forEach((element) => {
+    element.disabled = false;
   });
 };
 
