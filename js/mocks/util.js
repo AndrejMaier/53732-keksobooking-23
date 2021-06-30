@@ -52,38 +52,4 @@ const getRandomArray = (arr) => {
   return newArray;
 };
 
-/**
- * Отрисовка всех доступных удобств
- *
- * @param {array} elements
- * @returns {array}
- */
-const renderSimilarFeatures = (elements) => {
-  const features = document.createDocumentFragment();
-  elements.forEach((element) => {
-    const feature = document.createElement('li');
-    feature.classList.add('popup__feature');
-    feature.classList.add(`popup__feature--${element}`);
-    features.appendChild(feature);
-  });
-  return features;
-};
-
-/**
- * Отрисовка галереи изображений объявления
- *
- * @param {array} elements - массив со ссылками на фотографии
- * @param {*} template - клонированный объект объявления в котором присутствует тег изображения
- * @returns {array}
- */
-const renderSimilarPhotos = (elements, template) => {
-  const photos = document.createDocumentFragment();
-  elements.forEach((element) => {
-    const newOfferPhoto = template.querySelector('.popup__photo').cloneNode(false);
-    newOfferPhoto.src = element;
-    photos.appendChild(newOfferPhoto);
-  });
-  return photos;
-};
-
-export {getDecimalRandom, getRandom, getRandomArrayElement, getRandomArray, renderSimilarFeatures, renderSimilarPhotos};
+export {getDecimalRandom, getRandom, getRandomArrayElement, getRandomArray};
