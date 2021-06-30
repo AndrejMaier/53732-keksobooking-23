@@ -7,7 +7,7 @@ const mapFiltersFieldset = mapFilters.querySelectorAll('fieldset');
 const disablePage = () => {
   adForm.classList.add('ad-form--disabled');
   adFormFieldsets.forEach((element) => {
-    element.setAttribute('disabled', 'disabled');
+    element.disabled = true;
   });
   mapFilters.classList.add('map__filters--disabled');
   mapFiltersSelect.forEach((element) => {
@@ -20,7 +20,8 @@ const disablePage = () => {
 
 const activatePage = () => {
   adForm.classList.remove('ad-form--disabled');
-  adFormFieldsets.forEach((element) => {element.removeAttribute('disabled', 'disabled');
+  adFormFieldsets.forEach((element) => {
+    element.removeAttribute('disabled', 'disabled');
   });
   mapFilters.classList.remove('map__filters--disabled');
   mapFiltersSelect.forEach((element) => {
