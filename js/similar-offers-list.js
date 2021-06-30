@@ -7,7 +7,7 @@ const map = document.querySelector('#map-canvas');
 /**
  * Отрисовка объявлений в разметке
  *
- * @param {*} elements - массив объявлений
+ * @param {Array} elements - массив объявлений
  */
 const renderOffers = (elements) => {
   elements.forEach((element) => {
