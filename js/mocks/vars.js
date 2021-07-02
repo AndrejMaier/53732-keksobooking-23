@@ -38,4 +38,18 @@ const translatedTypeHouse= {
   hotel: 'Отель',
 };
 
-export {AVATAR_COUNT, TYPE_HOUSE, translatedTypeHouse, CHECKINS, CHECKOUTS, FEATURES, PHOTOS};
+const nameClasses = {
+  avatar: '.popup__avatar',
+  title: '.popup__title',
+  address: '.popup__text--address',
+  price: '.popup__text--price',
+  type: '.popup__type',
+  rooms: '.popup__text--capacity',
+  guests: '.popup__text--capacity',
+  checkin: '.popup__text--time',
+  checkout: '.popup__text--time',
+  features: '.popup__features',
+  photos: '.popup__photos',
+};
+
+export {AVATAR_COUNT, TYPE_HOUSE, translatedTypeHouse, CHECKINS, CHECKOUTS, FEATURES, PHOTOS, nameClasses};

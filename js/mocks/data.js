@@ -14,7 +14,7 @@ const generateOffer = () => {
       avatar: `img/avatars/user0${getRandom(1, AVATAR_COUNT)}.png`,
     },
     offer: {
-      title: 'Сдача недвижимости',
+      title: undefined, //'Сдача недвижимости',
       address: `${locationX}, ${locationY}`,
       price: getRandom(0, 100000),
       type: getRandomArrayElement(TYPE_HOUSE),
