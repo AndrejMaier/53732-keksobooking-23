@@ -16,26 +16,11 @@ const CHECKOUTS = [
   '13:00',
   '14:00',
 ];
-const FEATURES = [
-  'wifi',
-  'dishwasher',
-  'parking',
-  'washer',
-  'elevator',
-  'conditioner',
-];
+
 const PHOTOS = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/duonguyen-8LrGtIxxa4w.jpg',
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg',
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg',
 ];
 
-const translatedTypeHouse= {
-  palace: 'Дворец',
-  flat: 'Квартира',
-  house: 'Дом',
-  bungalow: 'Бунгало',
-  hotel: 'Отель',
-};
-
-export {AVATAR_COUNT, TYPE_HOUSE, translatedTypeHouse, CHECKINS, CHECKOUTS, FEATURES, PHOTOS};
+export {AVATAR_COUNT, TYPE_HOUSE, CHECKINS, CHECKOUTS, PHOTOS};

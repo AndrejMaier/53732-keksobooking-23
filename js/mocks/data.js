@@ -1,5 +1,6 @@
 import {getDecimalRandom, getRandom, getRandomArrayElement, getRandomArray} from './util.js';
-import {AVATAR_COUNT, TYPE_HOUSE, CHECKINS, CHECKOUTS, FEATURES, PHOTOS} from './vars.js';
+import {AVATAR_COUNT, TYPE_HOUSE, CHECKINS, CHECKOUTS, PHOTOS} from './vars.js';
+import {FEATURES} from '../vars.js';
 
 /**
  *  Создает объект
