@@ -5,6 +5,11 @@ const adFormFieldsets = adForm.querySelectorAll('fieldset');
 const mapFilters = document.querySelector('.map__filters');
 const mapFiltersSelect = mapFilters.querySelectorAll('select');
 const mapFiltersFieldset = mapFilters.querySelectorAll('fieldset');
+const typeHouse = document.querySelector('#type');
+const priceField = document.querySelector('#price');
+const rooms = document.querySelector('#room_number');
+const quantityGuests = document.querySelector('#capacity');
+const quantityGuestsList = quantityGuests.querySelectorAll('option');
 
 
 const disableForm = () => {
@@ -39,11 +44,6 @@ const enableForm = () => {
 // Валидация формы
 //
 
-const rooms = document.querySelector('#room_number');
-const quantityGuests = document.querySelector('#capacity');
-const quantityGuestsList = quantityGuests.querySelectorAll('option');
-
-
 const syncRoomsAndGuests = () => {
   rooms.addEventListener('change', (event) => {
     const room = Number(event.target.value);
@@ -57,10 +57,6 @@ const syncRoomsAndGuests = () => {
     });
   });
 };
-
-const typeHouse = document.querySelector('#type');
-const priceField = document.querySelector('#price');
-
 
 const syncTypeHouseAndPrice = () => {
   typeHouse.addEventListener('change', (event) => {
