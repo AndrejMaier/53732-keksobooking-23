@@ -36,4 +36,12 @@ const roomsAndGuests = {
   100: [0],
 };
 
-export {FEATURES, translatedTypeHouse, nameClasses, roomsAndGuests};
+const typeHouseAndPrice = {
+  palace: 10000,
+  flat: 1000,
+  house: 5000,
+  bungalow: 0,
+  hotel: 3000,
+};
+
+export {FEATURES, translatedTypeHouse, nameClasses, roomsAndGuests, typeHouseAndPrice};

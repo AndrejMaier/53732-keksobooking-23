@@ -1,4 +1,4 @@
-import {roomsAndGuests} from './vars.js';
+import {roomsAndGuests, typeHouseAndPrice} from './vars.js';
 
 const adForm = document.querySelector('.ad-form');
 const adFormFieldsets = adForm.querySelectorAll('fieldset');
@@ -35,7 +35,10 @@ const enableForm = () => {
   });
 };
 
+//
 // Валидация формы
+//
+
 const rooms = document.querySelector('#room_number');
 const quantityGuests = document.querySelector('#capacity');
 const quantityGuestsList = quantityGuests.querySelectorAll('option');
@@ -55,4 +58,15 @@ const syncRoomsAndGuests = () => {
   });
 };
 
-export {disableForm, enableForm, syncRoomsAndGuests};
+const typeHouse = document.querySelector('#type');
+const priceField = document.querySelector('#price');
+
+
+const syncTypeHouseAndPrice = () => {
+  typeHouse.addEventListener('change', (event) => {
+    priceField.min = typeHouseAndPrice[event.target.value];
+    priceField.placeholder = typeHouseAndPrice[event.target.value];
+  });
+};
+
+export {disableForm, enableForm, syncRoomsAndGuests, syncTypeHouseAndPrice};
