@@ -1,3 +1,5 @@
+import {roomsAndGuests} from './vars.js';
+
 const adForm = document.querySelector('.ad-form');
 const adFormFieldsets = adForm.querySelectorAll('fieldset');
 const mapFilters = document.querySelector('.map__filters');
@@ -33,4 +35,24 @@ const enableForm = () => {
   });
 };
 
-export {disableForm, enableForm};
+// Валидация формы
+const rooms = document.querySelector('#room_number');
+const quantityGuests = document.querySelector('#capacity');
+const quantityGuestsList = quantityGuests.querySelectorAll('option');
+
+
+const syncRoomsAndGuests = () => {
+  rooms.addEventListener('change', (event) => {
+    const room = Number(event.target.value);
+    quantityGuestsList.forEach((option) => {
+      if (roomsAndGuests[room].includes(Number(option.value))) {
+        option.disabled = false;
+        option.selected = true;
+      }else {
+        option.disabled = true;
+      }
+    });
+  });
+};
+
+export {disableForm, enableForm, syncRoomsAndGuests};

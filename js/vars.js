@@ -29,4 +29,11 @@ const nameClasses = {
   photos: '.popup__photos',
 };
 
-export {FEATURES, translatedTypeHouse, nameClasses};
+const roomsAndGuests = {
+  1: [1],
+  2: [1, 2],
+  3: [1, 2, 3],
+  100: [0],
+};
+
+export {FEATURES, translatedTypeHouse, nameClasses, roomsAndGuests};
