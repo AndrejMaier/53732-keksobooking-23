@@ -10,8 +10,12 @@ const priceField = document.querySelector('#price');
 const rooms = document.querySelector('#room_number');
 const quantityGuests = document.querySelector('#capacity');
 const quantityGuestsList = quantityGuests.querySelectorAll('option');
+const checkinField = document.querySelector('#timein');
+const checkinFieldList = checkinField.querySelectorAll('option');
+const checkoutField = document.querySelector('#timeout');
+const checkoutFieldList = checkoutField.querySelectorAll('option');
 
-
+// Переводит страницу в неактивное состояние
 const disableForm = () => {
   adForm.classList.add('ad-form--disabled');
   adFormFieldsets.forEach((element) => {
@@ -26,6 +30,7 @@ const disableForm = () => {
   });
 };
 
+// Переводит страницу в активное состояние
 const enableForm = () => {
   adForm.classList.remove('ad-form--disabled');
   adFormFieldsets.forEach((element) => {
@@ -44,9 +49,10 @@ const enableForm = () => {
 // Валидация формы
 //
 
+// синхронизация полей "количество комнат" и "количество мест"
 const syncRoomsAndGuests = () => {
-  rooms.addEventListener('change', (event) => {
-    const room = Number(event.target.value);
+  rooms.addEventListener('change', (e) => {
+    const room = Number(e.target.value);
     quantityGuestsList.forEach((option) => {
       if (roomsAndGuests[room].includes(Number(option.value))) {
         option.disabled = false;
@@ -58,11 +64,37 @@ const syncRoomsAndGuests = () => {
   });
 };
 
+// синхронизация полей "тип жилья" и "цена за ночь"
 const syncTypeHouseAndPrice = () => {
-  typeHouse.addEventListener('change', (event) => {
-    priceField.min = typeHouseAndPrice[event.target.value];
-    priceField.placeholder = typeHouseAndPrice[event.target.value];
+  typeHouse.addEventListener('change', (e) => {
+    priceField.min = typeHouseAndPrice[e.target.value];
+    priceField.placeholder = typeHouseAndPrice[e.target.value];
   });
 };
 
-export {disableForm, enableForm, syncRoomsAndGuests, syncTypeHouseAndPrice};
+// обработчик события изменения значения полей
+const syncCheckTime = (time1, time2) => {
+  time1.addEventListener('change', (e) => {
+    time2.forEach((option) => {
+      if (option.value === e.target.value) {
+        option.selected = true;
+      }
+    });
+  });
+};
+
+//синхронизация полей "время заезда и выезда"
+const syncCheckinAndCheckout = () => {
+  syncCheckTime(checkinField, checkoutFieldList);
+  syncCheckTime(checkoutField, checkinFieldList);
+};
+
+// настройка формы
+const initForm = () => {
+  syncRoomsAndGuests();
+  syncTypeHouseAndPrice();
+  syncCheckinAndCheckout();
+};
+
+
+export {disableForm, enableForm, initForm};
