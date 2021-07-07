@@ -10,6 +10,10 @@ const priceField = document.querySelector('#price');
 const rooms = document.querySelector('#room_number');
 const quantityGuests = document.querySelector('#capacity');
 const quantityGuestsList = quantityGuests.querySelectorAll('option');
+const checkinField = document.querySelector('#timein');
+const checkinFieldList = checkinField.querySelectorAll('option');
+const checkoutField = document.querySelector('#timeout');
+const checkoutFieldList = checkoutField.querySelectorAll('option');
 
 // Переводит страницу в неактивное состояние
 const disableForm = () => {
@@ -67,11 +71,6 @@ const syncTypeHouseAndPrice = () => {
     priceField.placeholder = typeHouseAndPrice[e.target.value];
   });
 };
-
-const checkinField = document.querySelector('#timein');
-const checkinFieldList = checkinField.querySelectorAll('option');
-const checkoutField = document.querySelector('#timeout');
-const checkoutFieldList = checkoutField.querySelectorAll('option');
 
 // обработчик события изменения значения полей
 const syncCheckTime = (time1, time2) => {
