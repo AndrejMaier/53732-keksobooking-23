@@ -61,7 +61,11 @@ const putPinsToMap = (offers) => {
     });
     pinMarker
       .addTo(map)
-      .bindPopup(renderCard(offer));
+      .bindPopup(renderCard(offer),
+        {
+          keepInView: true,
+        },
+      );
   });
 };
 
