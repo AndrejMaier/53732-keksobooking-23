@@ -1,6 +1,6 @@
 import {translatedTypeHouse, nameClasses} from './vars.js';
 
-const offerTemplate = document.querySelector('#card').content;
+const offerTemplate = document.querySelector('#card').content.querySelector('.popup');
 
 /**
  * Отрисовка всех доступных удобств
