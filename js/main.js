@@ -1,11 +1,11 @@
 import {generateOffers} from './mocks/data.js';
-import {renderCard} from './card.js';
-import {disableForm, enableForm, initForm} from './form.js';
+import {disableForm, initForm} from './form.js';
+import {loadMap, putPinsToMap} from './map.js';
 
 const COUNT_OFFER = 10;
-const offers = generateOffers(COUNT_OFFER);
 
-renderCard(offers[0]);
+
 disableForm();
-enableForm();
+loadMap();
+putPinsToMap(generateOffers(COUNT_OFFER));
 initForm();

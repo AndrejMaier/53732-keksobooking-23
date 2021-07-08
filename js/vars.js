@@ -44,4 +44,11 @@ const typeHouseAndPrice = {
   hotel: 3000,
 };
 
-export {FEATURES, translatedTypeHouse, nameClasses, roomsAndGuests, typeHouseAndPrice};
+const setAddress = {
+  lat: 35.681700,
+  lng: 139.753891,
+};
+
+const DECIMAL = 5;
+
+export {FEATURES, DECIMAL, translatedTypeHouse, nameClasses, roomsAndGuests, typeHouseAndPrice, setAddress};
