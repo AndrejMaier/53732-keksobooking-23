@@ -59,6 +59,7 @@ const putPinsToMap = (offers) => {
     {
       icon: pinIcon,
     });
+
     pinMarker
       .addTo(map)
       .bindPopup(renderCard(offer),
