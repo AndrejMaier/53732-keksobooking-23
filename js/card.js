@@ -1,7 +1,6 @@
 import {translatedTypeHouse, nameClasses} from './vars.js';
 
-const offerTemplate = document.querySelector('#card').content;
-const map = document.querySelector('#map-canvas');
+const offerTemplate = document.querySelector('#card').content.querySelector('.popup');
 
 /**
  * Отрисовка всех доступных удобств
@@ -79,7 +78,7 @@ const renderCard = (element) => {
   newOfferPhotos.appendChild(renderSimilarPhotos(element.offer.photos, offerTemplate));
   newOffer.querySelector('.popup__avatar').src = element.author.avatar;
   checkValue(element, newOffer, nameClasses);
-  map.appendChild(newOffer);
+  return newOffer;
 };
 
 export {renderCard};

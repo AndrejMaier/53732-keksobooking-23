@@ -1,4 +1,4 @@
-import {roomsAndGuests, typeHouseAndPrice} from './vars.js';
+import {roomsAndGuests, typeHouseAndPrice, DECIMAL, setAddress} from './vars.js';
 
 const adForm = document.querySelector('.ad-form');
 const adFormFieldsets = adForm.querySelectorAll('fieldset');
@@ -11,9 +11,8 @@ const rooms = document.querySelector('#room_number');
 const quantityGuests = document.querySelector('#capacity');
 const quantityGuestsList = quantityGuests.querySelectorAll('option');
 const checkinField = document.querySelector('#timein');
-const checkinFieldList = checkinField.querySelectorAll('option');
 const checkoutField = document.querySelector('#timeout');
-const checkoutFieldList = checkoutField.querySelectorAll('option');
+const addressField = document.querySelector('#address');
 
 // Переводит страницу в неактивное состояние
 const disableForm = () => {
@@ -72,21 +71,23 @@ const syncTypeHouseAndPrice = () => {
   });
 };
 
-// обработчик события изменения значения полей
+// обработчик события изменения значения поля времени
 const syncCheckTime = (time1, time2) => {
-  time1.addEventListener('change', (e) => {
-    time2.forEach((option) => {
-      if (option.value === e.target.value) {
-        option.selected = true;
-      }
-    });
+  time1.addEventListener('input', (e) => {
+    time2.value = e.target.value;
   });
 };
 
 //синхронизация полей "время заезда и выезда"
 const syncCheckinAndCheckout = () => {
-  syncCheckTime(checkinField, checkoutFieldList);
-  syncCheckTime(checkoutField, checkinFieldList);
+  syncCheckTime(checkinField, checkoutField);
+  syncCheckTime(checkoutField, checkinField);
+};
+
+const getSetAddress = (coordinates) => {
+  const lat = coordinates.lat.toFixed(DECIMAL);
+  const lng = coordinates.lng.toFixed(DECIMAL);
+  addressField.value = `${lat}, ${lng}`;
 };
 
 // настройка формы
@@ -94,7 +95,8 @@ const initForm = () => {
   syncRoomsAndGuests();
   syncTypeHouseAndPrice();
   syncCheckinAndCheckout();
+  getSetAddress(setAddress);
 };
 
 
-export {disableForm, enableForm, initForm};
+export {disableForm, enableForm, initForm, addressField};
