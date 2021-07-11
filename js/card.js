@@ -11,7 +11,9 @@ const offerTemplate = document.querySelector('#card').content.querySelector('.po
  */
 const renderSimilarFeatures = (elements, template, glossary) => {
   Object.keys(glossary).forEach((item) => {
-    if (!elements.includes(item)) {
+    if (elements === undefined) {
+      template.querySelector('.popup__features').textContent = '';
+    }else if (!elements.includes(item)) {
       template.querySelector(glossary[item]).remove();
     }
   });
@@ -27,15 +29,19 @@ const renderSimilarFeatures = (elements, template, glossary) => {
 const renderSimilarPhotos = (elements, template) => {
   const photos = template.querySelector('.popup__photos');
   const photo = template.querySelector('.popup__photo');
-  elements.forEach((element, index) => {
-    if (index === 0) {
-      photo.src = element;
-    } else {
-      const newPhoto = photo.cloneNode(false);
-      newPhoto.src = element;
-      photos.appendChild(newPhoto);
-    }
-  });
+  if (elements === undefined) {
+    return photos.remove();
+  } else {
+    elements.forEach((element, index) => {
+      if (index === 0) {
+        photo.src = element;
+      } else {
+        const newPhoto = photo.cloneNode(false);
+        newPhoto.src = element;
+        photos.appendChild(newPhoto);
+      }
+    });
+  }
 };
 
 /**

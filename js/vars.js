@@ -61,4 +61,6 @@ const setAddress = {
 
 const DECIMAL = 5;
 
-export {FEATURES, DECIMAL, translatedTypeHouse, nameClasses, roomsAndGuests, typeHouseAndPrice, setAddress, nameClassesOfFeatures};
+const ALERT_SHOW_TIME = 5000;
+
+export {FEATURES, DECIMAL, translatedTypeHouse, nameClasses, roomsAndGuests, typeHouseAndPrice, setAddress, nameClassesOfFeatures, ALERT_SHOW_TIME};
