@@ -98,5 +98,4 @@ const initForm = () => {
   getSetAddress(setAddress);
 };
 
-
 export {disableForm, enableForm, initForm, addressField};

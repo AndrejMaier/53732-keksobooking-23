@@ -29,6 +29,16 @@ const nameClasses = {
   photos: '.popup__photos',
 };
 
+const nameClassesOfFeatures = {
+  wifi: '.popup__feature--wifi',
+  dishwasher: '.popup__feature--dishwasher',
+  parking: '.popup__feature--parking',
+  washer: '.popup__feature--washer',
+  elevator: '.popup__feature--elevator',
+  conditioner: '.popup__feature--conditioner',
+
+};
+
 const roomsAndGuests = {
   1: [1],
   2: [1, 2],
@@ -51,4 +61,6 @@ const setAddress = {
 
 const DECIMAL = 5;
 
-export {FEATURES, DECIMAL, translatedTypeHouse, nameClasses, roomsAndGuests, typeHouseAndPrice, setAddress};
+const ALERT_SHOW_TIME = 5000;
+
+export {FEATURES, DECIMAL, translatedTypeHouse, nameClasses, roomsAndGuests, typeHouseAndPrice, setAddress, nameClassesOfFeatures, ALERT_SHOW_TIME};
