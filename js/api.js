@@ -20,17 +20,15 @@ const sendData = (onSuccess, onFail, body) => {
   fetch(
     'https://23.javascript.pages.academy/keksobooking',
     {
-      metod: 'POST',
-      body: body,
+      method: 'POST',
+      body,
     },
   )
     .then((response) => {
       if (response.ok) {
-        //openModal(onSuccess);
-        console.log(response.status);
+        openModal(onSuccess);
       } else {
-        //openModal(onFail);
-        console.log(response.status);
+        openModal(onFail);
       }
     })
     .catch(

@@ -1,4 +1,4 @@
-import { sendData} from './api.js';
+import {sendData} from './api.js';
 import {roomsAndGuests, typeHouseAndPrice, DECIMAL, setAddress} from './vars.js';
 //import {sendData} from './api.js';
 
@@ -101,7 +101,7 @@ const initForm = () => {
   getSetAddress(setAddress);
 };
 
-//Обработка события отправки объявления
+//Обработка события отправки формы объявления
 const formSubmitHandler = (onSuccess, onError) => {
   adForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
