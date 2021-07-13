@@ -1,20 +1,16 @@
-import {disableForm, initForm} from './form.js';
+import {disableForm, initForm, formSubmitHandler} from './form.js';
 import {loadMap, putPinsToMap} from './map.js';
 import {getData} from './api.js';
 
 const COUNT_OFFER = 10;
-const submitButton = document.querySelector('.ad-form__submit');
+const successModal = document.querySelector('#success').content.querySelector('.success');
+const errorModal = document.querySelector('#error').content.querySelector('.error');
 
 getData((offers) => {
   putPinsToMap(offers.slice(0, COUNT_OFFER));
 });
-
 disableForm();
 loadMap();
 initForm();
-
-submitButton.addEventListener('submit', (evt) => {
-  evt.preventDefault();
-  console.log('Кнопку нажал');
-});
+formSubmitHandler(successModal, errorModal);
 

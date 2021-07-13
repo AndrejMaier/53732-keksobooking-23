@@ -1,4 +1,5 @@
 //import {putPinsToMap} from './form.js';
+import { openModal } from './modal.js';
 import {showAlert} from './util.js';
 
 const getData = (onSuccess) => {
@@ -20,19 +21,21 @@ const sendData = (onSuccess, onFail, body) => {
     'https://23.javascript.pages.academy/keksobooking',
     {
       metod: 'POST',
-      body,
+      body: body,
     },
   )
     .then((response) => {
       if (response.ok) {
-        onSuccess();
+        //openModal(onSuccess);
+        console.log(response.status);
       } else {
-        onFail('не удалось отправить форму');
+        //openModal(onFail);
+        console.log(response.status);
       }
     })
-    .catch(() => {
-      onFail('не удалось отправить форму');
-    });
+    .catch(
+      openModal(onFail),
+    );
 };
 
 export {getData, sendData};
