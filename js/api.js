@@ -1,5 +1,5 @@
 //import {putPinsToMap} from './form.js';
-import { openModal } from './modal.js';
+import {openSuccessModal, openErrorModal} from './modal.js';
 import {showAlert} from './util.js';
 
 const getData = (onSuccess) => {
@@ -16,24 +16,22 @@ const getData = (onSuccess) => {
     .catch((err) => showAlert(err));
 };
 
-const sendData = (onSuccess, onFail, body) => {
+const sendData = (body) => {
   fetch(
     'https://23.javascript.pages.academy/keksobooking',
     {
       method: 'POST',
-      body,
+      body: body,
     },
   )
     .then((response) => {
       if (response.ok) {
-        openModal(onSuccess);
+        openSuccessModal();
       } else {
-        openModal(onFail);
+        openErrorModal();
       }
     })
-    .catch(
-      openModal(onFail),
-    );
+    .catch(() => openErrorModal());
 };
 
 export {getData, sendData};

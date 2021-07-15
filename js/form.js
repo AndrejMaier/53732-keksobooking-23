@@ -102,13 +102,10 @@ const initForm = () => {
 };
 
 //Обработка события отправки формы объявления
-const formSubmitHandler = (onSuccess, onError) => {
+const formSubmitHandler = () => {
   adForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
-    sendData(
-      onSuccess,
-      onError,
-      new FormData(evt.target),
+    sendData(new FormData(evt.target),
     );
   });
 };

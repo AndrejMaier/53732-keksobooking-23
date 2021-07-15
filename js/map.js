@@ -70,4 +70,20 @@ const putPinsToMap = (offers) => {
   });
 };
 
-export {loadMap, putPinsToMap};
+// const leafletPopupPane = document.querySelector('.leaflet-popup-pane');
+
+// const removePopupContent = (evt) => {
+//   evt.preventDefault();
+//   if (evt.key === 'Escape' || evt.key === 'Esc') {
+//     leafletPopupPane.textContent = '';
+//     leafletPopupPane.removeEventListener('keydown', removePopupContent);
+//   }
+// };
+
+// const leafletPopupclose = () => {
+//   if (leafletPopupPane === undefined) {
+//     leafletPopupPane.addEventListener('keydown', removePopupContent);
+//   }
+// };
+
+export {loadMap, putPinsToMap, map, mainPinMarker};
