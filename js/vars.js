@@ -63,4 +63,21 @@ const DECIMAL = 5;
 
 const ALERT_SHOW_TIME = 5000;
 
-export {FEATURES, DECIMAL, translatedTypeHouse, nameClasses, roomsAndGuests, typeHouseAndPrice, setAddress, nameClassesOfFeatures, ALERT_SHOW_TIME};
+const filterPriceCategory = {
+  'low': {
+    start: 0,
+    end: 10000,
+  },
+  'middle': {
+    start: 10000,
+    end: 50000,
+  },
+  'high': {
+    start: 50000,
+    end: Infinity,
+  },
+};
+
+const RERENDER_DELAY = 500;
+
+export {FEATURES, DECIMAL, translatedTypeHouse, nameClasses, roomsAndGuests, typeHouseAndPrice, setAddress, nameClassesOfFeatures, ALERT_SHOW_TIME, filterPriceCategory, RERENDER_DELAY};

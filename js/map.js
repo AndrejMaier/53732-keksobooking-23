@@ -42,48 +42,40 @@ mainPinMarker.on('move', (evt) => {
   addressField.value = `${lat}, ${lng}`;
 });
 
+const pinsGroup = L.layerGroup().addTo(map);
+
+const putPinToMap = (offer) => {
+  const lat = offer.location.lat;
+  const lng = offer.location.lng;
+
+  const pinIcon = L.icon({
+    iconUrl: './img/pin.svg',
+    iconSize: [40, 40],
+  });
+
+  const pinMarker = L.marker({
+    lat,
+    lng,
+  },
+  {
+    icon: pinIcon,
+  });
+
+  pinMarker
+    .addTo(pinsGroup)
+    .bindPopup(renderCard(offer),
+      {
+        keepInView: true,
+      },
+    );
+};
+
 const putPinsToMap = (offers) => {
   offers.forEach((offer) => {
-    const lat = offer.location.lat;
-    const lng = offer.location.lng;
-
-    const pinIcon = L.icon({
-      iconUrl: './img/pin.svg',
-      iconSize: [40, 40],
-    });
-
-    const pinMarker = L.marker({
-      lat,
-      lng,
-    },
-    {
-      icon: pinIcon,
-    });
-
-    pinMarker
-      .addTo(map)
-      .bindPopup(renderCard(offer),
-        {
-          keepInView: true,
-        },
-      );
+    putPinToMap(offer);
   });
 };
 
-// const leafletPopupPane = document.querySelector('.leaflet-popup-pane');
+const clearPinsGroup = () => pinsGroup.clearLayers();
 
-// const removePopupContent = (evt) => {
-//   evt.preventDefault();
-//   if (evt.key === 'Escape' || evt.key === 'Esc') {
-//     leafletPopupPane.textContent = '';
-//     leafletPopupPane.removeEventListener('keydown', removePopupContent);
-//   }
-// };
-
-// const leafletPopupclose = () => {
-//   if (leafletPopupPane === undefined) {
-//     leafletPopupPane.addEventListener('keydown', removePopupContent);
-//   }
-// };
-
-export {loadMap, putPinsToMap, map, mainPinMarker};
+export {loadMap, putPinsToMap, putPinToMap, clearPinsGroup, map, mainPinMarker};

@@ -6,6 +6,7 @@ const successModalTemplate = document.querySelector('#success').content.querySel
 const errorModalTemplate = document.querySelector('#error').content.querySelector('.error');
 const mapFilter = document.querySelector('.map__filters');
 const resetButton = document.querySelector('.ad-form__reset');
+const isEsc = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
 
 // Возврат карты в начальные координаты
 const resetPinMap = () => {
@@ -19,14 +20,17 @@ const resetFilter = () => {
 };
 
 // сброс формы и карты
-const ClearAndResetFormAndMap = () => {
+const clearAndResetFormAndMap = () => {
   document.querySelector('.ad-form').reset();
   resetPinMap();
   resetFilter();
 };
 
 // сброс формы, карты и фильтра при нажатии кнопки сброса
-resetButton.addEventListener('click', ClearAndResetFormAndMap);
+resetButton.addEventListener('click', (evt) => {
+  evt.preventDefault();
+  clearAndResetFormAndMap();
+});
 
 
 // проблема с Eslint
@@ -39,12 +43,16 @@ const onSuccessPopupEscKeydown = (evt) => {
   }
 };
 
+const onCloseSuccessModal = () => {
+  // eslint-disable-next-line no-use-before-define
+  closeSuccessModal();
+};
 // Закрытие окна с объявление об успешной отправки данных
 const closeSuccessModal = () => {
   document.body.lastChild.remove();
   document.removeEventListener('keydown', onSuccessPopupEscKeydown);
-  document.removeEventListener('click', closeSuccessModal);
-  ClearAndResetFormAndMap();
+  document.removeEventListener('click', onCloseSuccessModal);
+  clearAndResetFormAndMap();
 };
 
 const openSuccessModal = () => {
@@ -52,11 +60,11 @@ const openSuccessModal = () => {
   document.body.appendChild(modal);
 
   document.addEventListener('keydown', onSuccessPopupEscKeydown);
-  document.addEventListener('click', closeSuccessModal);
+  document.addEventListener('click', onCloseSuccessModal);
 };
 
 const onErrorPopupEscKeydown = (evt) => {
-  if (evt.key === 'Escape' || evt.key === 'Esc') {
+  if (isEsc) {
     evt.preventDefault();
     // eslint-disable-next-line no-use-before-define
     closeErrorModal();
@@ -65,12 +73,17 @@ const onErrorPopupEscKeydown = (evt) => {
 
 // ошибка Eslint
 // закрытие окна с объявлением
+const onCloseErrorModal = () => {
+  // eslint-disable-next-line no-use-before-define
+  closeErrorModal();
+};
+
 const closeErrorModal = () => {
   document.body.lastChild.remove();
   document.removeEventListener('keydown', onErrorPopupEscKeydown);
-  document.removeEventListener('click', closeErrorModal);
+  document.removeEventListener('click', onCloseErrorModal);
   // eslint-disable-next-line no-undef
-  errorButton.removeEventListener('click', closeErrorModal);
+  errorButton.removeEventListener('click', onCloseErrorModal);
 };
 
 //
@@ -79,9 +92,9 @@ const openErrorModal = () => {
   const error = errorModalTemplate.cloneNode(true);
   const errorButton = error.querySelector('.error__button');
   document.body.appendChild(error);
-  errorButton.addEventListener('click', closeErrorModal);
+  errorButton.addEventListener('click', onCloseErrorModal);
   document.addEventListener('keydown', onErrorPopupEscKeydown);
-  document.addEventListener('click', closeErrorModal);
+  document.addEventListener('click', onCloseErrorModal);
 };
 
 export {openSuccessModal, openErrorModal};
