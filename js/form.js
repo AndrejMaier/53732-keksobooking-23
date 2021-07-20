@@ -1,6 +1,5 @@
 import {sendData} from './api.js';
 import {roomsAndGuests, typeHouseAndPrice, DECIMAL, setAddress} from './vars.js';
-//import {sendData} from './api.js';
 
 const adForm = document.querySelector('.ad-form');
 const adFormFieldsets = adForm.querySelectorAll('fieldset');
@@ -102,11 +101,10 @@ const initForm = () => {
 };
 
 //Обработка события отправки формы объявления
-const formSubmitHandler = () => {
+const formSubmitHandler = (ads) => {
   adForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
-    sendData(new FormData(evt.target),
-    );
+    sendData(new FormData(evt.target), ads);
   });
 };
 

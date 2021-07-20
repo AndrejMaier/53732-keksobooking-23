@@ -4,18 +4,19 @@ import {getData} from './api.js';
 import {getFilteredAds, filterChange, changeAds} from './filter.js';
 import {debounce} from './utils/debounce.js';
 import {RERENDER_DELAY} from './vars.js';
+import {onResetButton} from './modal.js';
 
 
-//const COUNT_OFFER = 10;
-
+disableForm();
+loadMap();
+initForm();
 getData((offers) => {
   getFilteredAds(offers);
   changeAds(debounce(() => {
     filterChange(offers);
   }, RERENDER_DELAY));
+  onResetButton(() => {
+    getFilteredAds(offers);
+  });
+  formSubmitHandler(offers);
 });
-disableForm();
-loadMap();
-initForm();
-formSubmitHandler();
-

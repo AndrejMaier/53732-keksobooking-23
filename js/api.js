@@ -1,6 +1,8 @@
 //import {putPinsToMap} from './form.js';
-import {openSuccessModal, openErrorModal} from './modal.js';
+import {openSuccessModal, openErrorModal, resetPinMap, resetFilter} from './modal.js';
 import {showAlert} from './util.js';
+import {getFilteredAds} from './filter.js';
+import {clearPinsGroup} from './map.js';
 
 const getData = (onSuccess) => {
   fetch('https://23.javascript.pages.academy/keksobooking/data')
@@ -16,7 +18,7 @@ const getData = (onSuccess) => {
     .catch((err) => showAlert(err));
 };
 
-const sendData = (body) => {
+const sendData = (body, ads) => {
   fetch(
     'https://23.javascript.pages.academy/keksobooking',
     {
@@ -27,6 +29,10 @@ const sendData = (body) => {
     .then((response) => {
       if (response.ok) {
         openSuccessModal();
+        clearPinsGroup();
+        resetPinMap();
+        resetFilter();
+        getFilteredAds(ads);
       } else {
         openErrorModal();
       }

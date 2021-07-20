@@ -27,16 +27,17 @@ const clearAndResetFormAndMap = () => {
 };
 
 // сброс формы, карты и фильтра при нажатии кнопки сброса
-resetButton.addEventListener('click', (evt) => {
-  evt.preventDefault();
-  clearAndResetFormAndMap();
-});
+const onResetButton = (cb) => {
+  resetButton.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    clearAndResetFormAndMap();
+    cb();
+  });
+};
 
-
-// проблема с Eslint
 // Обработчик окна с объявление об успешной отправки данных при нажатии на ESC
 const onSuccessPopupEscKeydown = (evt) => {
-  if (evt.key === 'Escape' || evt.key === 'Esc') {
+  if (isEsc) {
     evt.preventDefault();
     // eslint-disable-next-line no-use-before-define
     closeSuccessModal();
@@ -71,7 +72,6 @@ const onErrorPopupEscKeydown = (evt) => {
   }
 };
 
-// ошибка Eslint
 // закрытие окна с объявлением
 const onCloseErrorModal = () => {
   // eslint-disable-next-line no-use-before-define
@@ -97,4 +97,4 @@ const openErrorModal = () => {
   document.addEventListener('click', onCloseErrorModal);
 };
 
-export {openSuccessModal, openErrorModal};
+export {openSuccessModal, openErrorModal, onResetButton, resetFilter, resetPinMap};
