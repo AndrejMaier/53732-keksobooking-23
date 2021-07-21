@@ -1,12 +1,13 @@
 
 import {map, mainPinMarker} from './map.js';
 import {setAddress} from './vars.js';
+import {onSuccessPopupEscKeydown, onCloseSuccessModal, onErrorPopupEscKeydown, onCloseErrorModal} from './modal-event.js';
 
 const successModalTemplate = document.querySelector('#success').content.querySelector('.success');
 const errorModalTemplate = document.querySelector('#error').content.querySelector('.error');
 const mapFilter = document.querySelector('.map__filters');
 const resetButton = document.querySelector('.ad-form__reset');
-const isEsc = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
+
 
 // Возврат карты в начальные координаты
 const resetPinMap = () => {
@@ -35,19 +36,6 @@ const onResetButton = (cb) => {
   });
 };
 
-// Обработчик окна с объявление об успешной отправки данных при нажатии на ESC
-const onSuccessPopupEscKeydown = (evt) => {
-  if (isEsc) {
-    evt.preventDefault();
-    // eslint-disable-next-line no-use-before-define
-    closeSuccessModal();
-  }
-};
-
-const onCloseSuccessModal = () => {
-  // eslint-disable-next-line no-use-before-define
-  closeSuccessModal();
-};
 // Закрытие окна с объявление об успешной отправки данных
 const closeSuccessModal = () => {
   document.body.lastChild.remove();
@@ -64,25 +52,11 @@ const openSuccessModal = () => {
   document.addEventListener('click', onCloseSuccessModal);
 };
 
-const onErrorPopupEscKeydown = (evt) => {
-  if (isEsc) {
-    evt.preventDefault();
-    // eslint-disable-next-line no-use-before-define
-    closeErrorModal();
-  }
-};
-
-// закрытие окна с объявлением
-const onCloseErrorModal = () => {
-  // eslint-disable-next-line no-use-before-define
-  closeErrorModal();
-};
-
 const closeErrorModal = () => {
+  const errorButton = document.querySelector('error__button');
   document.body.lastChild.remove();
   document.removeEventListener('keydown', onErrorPopupEscKeydown);
   document.removeEventListener('click', onCloseErrorModal);
-  // eslint-disable-next-line no-undef
   errorButton.removeEventListener('click', onCloseErrorModal);
 };
 
@@ -97,4 +71,4 @@ const openErrorModal = () => {
   document.addEventListener('click', onCloseErrorModal);
 };
 
-export {openSuccessModal, openErrorModal, onResetButton, resetFilter, resetPinMap};
+export {openSuccessModal, openErrorModal, onResetButton, resetFilter, resetPinMap, closeSuccessModal, closeErrorModal};
