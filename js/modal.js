@@ -1,6 +1,6 @@
 
 import {map, mainPinMarker} from './map.js';
-import {setAddress} from './vars.js';
+import {setAddress, MAP_ZOOM} from './vars.js';
 import {onSuccessPopupEscKeydown, onCloseSuccessModal, onErrorPopupEscKeydown, onCloseErrorModal} from './modal-event.js';
 import {resetAvatarImg, resetPhotoHome} from './img.js';
 
@@ -13,7 +13,7 @@ const resetButton = document.querySelector('.ad-form__reset');
 // Возврат карты в начальные координаты
 const resetPinMap = () => {
   mainPinMarker.setLatLng(setAddress);
-  map.setView(setAddress, 12);
+  map.setView(setAddress, MAP_ZOOM);
 };
 
 // сброс фильтра

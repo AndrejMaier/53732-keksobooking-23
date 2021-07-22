@@ -1,5 +1,5 @@
 import {putPinToMap, clearPinsGroup} from './map.js';
-import {filterPriceCategory} from './vars.js';
+import {filterPriceCategory, COUNT_OFFERS} from './vars.js';
 
 const filterForm = document.querySelector('.map__filters');
 const filterFieldTypeHouse = filterForm.querySelector('#housing-type');
@@ -42,7 +42,7 @@ const filterOfFeatures = (ad) => Array.from(checkListOfFeatures)
 const getFilteredAds = (ads) => {
   ads
     .filter((ad) => (filterOfType(ad) && filterOfPrice(ad) && filterOfRooms(ad) && filterOfGuests(ad) && filterOfFeatures(ad)))
-    .slice(0, 10)
+    .slice(0, COUNT_OFFERS)
     .forEach((ad) => putPinToMap(ad));
 };
 

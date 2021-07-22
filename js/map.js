@@ -1,4 +1,4 @@
-import {setAddress, DECIMAL} from './vars.js';
+import {setAddress, DECIMAL, MAIN_PIN_ICON_SIZE, MAIN_PIN_ICON_ANCHOR, PIN_ICON_SIZE, MAP_ZOOM} from './vars.js';
 import {enableForm, addressField} from './form.js';
 import {renderCard} from './card.js';
 
@@ -9,7 +9,7 @@ const loadMap = () => {
     .on('load', () => {
       enableForm();
     })
-    .setView(setAddress, 12);
+    .setView(setAddress, MAP_ZOOM);
 
   L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -21,8 +21,8 @@ const loadMap = () => {
 
 const mainPinIcon = L.icon({
   iconUrl: './img/main-pin.svg',
-  iconSize: [52, 52],
-  iconAnchor: [26, 52],
+  iconSize: MAIN_PIN_ICON_SIZE,
+  iconAnchor: MAIN_PIN_ICON_ANCHOR,
 });
 
 const mainPinMarker = L.marker(
@@ -50,7 +50,7 @@ const putPinToMap = (offer) => {
 
   const pinIcon = L.icon({
     iconUrl: './img/pin.svg',
-    iconSize: [40, 40],
+    iconSize: PIN_ICON_SIZE,
   });
 
   const pinMarker = L.marker({

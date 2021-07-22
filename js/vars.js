@@ -80,4 +80,12 @@ const filterPriceCategory = {
 
 const RERENDER_DELAY = 500;
 
-export {FEATURES, DECIMAL, translatedTypeHouse, nameClasses, roomsAndGuests, typeHouseAndPrice, setAddress, nameClassesOfFeatures, ALERT_SHOW_TIME, filterPriceCategory, RERENDER_DELAY};
+const MAP_ZOOM = 12;
+
+const MAIN_PIN_ICON_SIZE = [52, 52];
+const MAIN_PIN_ICON_ANCHOR = [26, 52];
+const PIN_ICON_SIZE = [40, 40];
+
+const COUNT_OFFERS = 10;
+
+export {FEATURES, DECIMAL, translatedTypeHouse, nameClasses, roomsAndGuests, typeHouseAndPrice, setAddress, nameClassesOfFeatures, ALERT_SHOW_TIME, filterPriceCategory, RERENDER_DELAY, MAIN_PIN_ICON_SIZE, MAIN_PIN_ICON_ANCHOR, PIN_ICON_SIZE, MAP_ZOOM, COUNT_OFFERS};
