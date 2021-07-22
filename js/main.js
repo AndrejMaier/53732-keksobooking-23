@@ -5,7 +5,7 @@ import {getFilteredAds, filterChange, changeAds} from './filter.js';
 import {debounce} from './utils/debounce.js';
 import {RERENDER_DELAY} from './vars.js';
 import {onResetButton} from './modal.js';
-
+import './img.js';
 
 disableForm();
 loadMap();

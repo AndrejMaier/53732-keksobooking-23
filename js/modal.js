@@ -2,6 +2,7 @@
 import {map, mainPinMarker} from './map.js';
 import {setAddress} from './vars.js';
 import {onSuccessPopupEscKeydown, onCloseSuccessModal, onErrorPopupEscKeydown, onCloseErrorModal} from './modal-event.js';
+import {resetAvatarImg, resetPhotoHome} from './img.js';
 
 const successModalTemplate = document.querySelector('#success').content.querySelector('.success');
 const errorModalTemplate = document.querySelector('#error').content.querySelector('.error');
@@ -25,6 +26,8 @@ const clearAndResetFormAndMap = () => {
   document.querySelector('.ad-form').reset();
   resetPinMap();
   resetFilter();
+  resetAvatarImg();
+  resetPhotoHome();
 };
 
 // сброс формы, карты и фильтра при нажатии кнопки сброса
