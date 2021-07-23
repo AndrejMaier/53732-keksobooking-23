@@ -56,7 +56,7 @@ const openSuccessModal = () => {
 };
 
 const closeErrorModal = () => {
-  const errorButton = document.querySelector('error__button');
+  const errorButton = document.querySelector('.error__button');
   document.body.lastChild.remove();
   document.removeEventListener('keydown', onErrorPopupEscKeydown);
   document.removeEventListener('click', onCloseErrorModal);
